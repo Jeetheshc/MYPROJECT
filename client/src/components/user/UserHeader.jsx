@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { DarkMode } from '../shared/Darkmode';
 import { axiosInstance } from '../../config/axiosInstance';
 import { FaCar } from "react-icons/fa";
-import { FaBars, FaTimes } from "react-icons/fa"; // Add the hamburger icon and close icon
 
 function UserHeader() {
   const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // For toggling the mobile menu
 
   const userLogout = async () => {
     try {
@@ -16,10 +14,6 @@ function UserHeader() {
     } catch (error) {
       // Handle error if needed
     }
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -34,13 +28,8 @@ function UserHeader() {
           CARENTO
         </Link>
 
-        {/* Hamburger Menu for Mobile */}
-        <button onClick={toggleMenu} className="lg:hidden text-3xl text-blue-700">
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-
-        {/* Navigation Links (Desktop) */}
-        <nav className="hidden lg:block">
+        {/* Navigation Links */}
+        <nav className="hidden lg:flex">
           <ul className="flex gap-6">
             <li>
               <Link to="/" className="font-bold hover:text-blue-300 transition-all duration-300">Home</Link>
@@ -58,7 +47,7 @@ function UserHeader() {
         </nav>
 
         {/* Profile and Logout Button */}
-        <div>
+        <div className="flex items-center">
           <button
             onClick={() => navigate('user/profile')}
             className="bg-white mr-5 text-sky-700 font-semibold px-4 py-2 rounded-md shadow-md hover:bg-blue-100 transition-all duration-300"
@@ -77,36 +66,34 @@ function UserHeader() {
         <DarkMode />
       </div>
 
-      {/* Mobile Navigation Links (Toggled by Hamburger Menu) */}
-      {isMenuOpen && (
-        <div className="lg:hidden absolute top-16 left-0 right-0 bg-white p-4 shadow-md">
-          <ul className="space-y-4">
-            <li>
-              <Link to="/" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Home</Link>
-            </li>
-            <li>
-              <Link to="/about" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">About</Link>
-            </li>
-            <li>
-              <Link to="/cars" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Cars</Link>
-            </li>
-            <li>
-              <Link to="/user/Carbookinglists" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Bookings</Link>
-            </li>
-            <li>
-              <Link to="/user/profile" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Profile</Link>
-            </li>
-            <li>
-              <button
-                onClick={userLogout}
-                className="font-bold text-red-600 hover:text-red-500 transition-all duration-300 w-full text-left"
-              >
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
+      {/* Mobile Navigation (Always visible, responsive design) */}
+      <nav className="lg:hidden w-full px-6 py-4 bg-white">
+        <ul className="space-y-4">
+          <li>
+            <Link to="/" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Home</Link>
+          </li>
+          <li>
+            <Link to="/about" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">About</Link>
+          </li>
+          <li>
+            <Link to="/cars" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Cars</Link>
+          </li>
+          <li>
+            <Link to="/user/Carbookinglists" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Bookings</Link>
+          </li>
+          <li>
+            <Link to="/user/profile" className="font-bold text-blue-700 hover:text-blue-500 transition-all duration-300">Profile</Link>
+          </li>
+          <li>
+            <button
+              onClick={userLogout}
+              className="font-bold text-red-600 hover:text-red-500 transition-all duration-300 w-full text-left"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
