@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(
     cors({
         
-        origin: ["http://localhost:5173"] ,
+        origin: ["https://carrentapp.vercel.app"] ,
         credentials: true,
         methods: ["GET","POST","PATCH","PUT","DELETE"]
     })
