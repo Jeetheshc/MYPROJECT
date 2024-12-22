@@ -57,8 +57,14 @@ export const AdminLogin = async (req, res) => {
             return res.status(400).json({ message: "Incorrect password" });
         }
 
-        const token = generateToken(AdminExist, 'user');
-        res.cookie("token", token, { sameSite: "None", secure: true });
+        const token = generateadminToken(AdminExist, 'Admin');
+        console.log("Generated Token:", token); // Debugging
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 24 * 60 * 60 * 1000, // 1 day
+        });
 
         res.status(200).json({ message: "Admin logged in successfully" });
     } catch (error) {
