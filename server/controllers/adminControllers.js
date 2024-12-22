@@ -57,13 +57,18 @@ export const AdminLogin = async (req, res) => {
             return res.status(400).json({ message: "Incorrect password" });
         }
 
-
-
         const token = generateadminToken(AdminExist, 'Admin');
-        res.cookie('token', token);
+        console.log("Generated Token:", token); // Debugging
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 24 * 60 * 60 * 1000, // 1 day
+        });
 
-        res.json({ message: "Admin logged in successfully" });
+        res.status(200).json({ message: "Admin logged in successfully" });
     } catch (error) {
+        console.error("Error during login:", error.message); // Debugging
         res.status(500).json({ message: error.message || "Internal server error" });
     }
 };
