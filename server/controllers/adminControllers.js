@@ -1,7 +1,7 @@
 
 import Admin from "../models/adminmodel.js";
 import bcrypt from "bcrypt";
-import { generateToken } from "../utils/token.js";
+import {  generateadminToken } from "../utils/token.js";
 import { cloudinaryInstance } from "../config/cloudinary.js";
 import User from "../models/userModel.js";
 import Booking from "../models/bookingmodel.js";
@@ -24,7 +24,7 @@ export const AdminSignup = async (req, res) => {
         const newAdmin = new Admin({ name, email, password: hashedPassword, phone, profilePic:imageUrl });
         await newAdmin.save();
 
-        const token = generateToken(newAdmin, "Admin");
+        const token = generateadminToken(newAdmin, "Admin");
 
         res.cookie("token", token)
 
@@ -59,7 +59,7 @@ export const AdminLogin = async (req, res) => {
 
 
 
-        const token = generateToken(AdminExist, 'Admin');
+        const token = generateadminToken(AdminExist, 'Admin');
         res.cookie('token', token);
 
         res.json({ message: "Admin logged in successfully" });
