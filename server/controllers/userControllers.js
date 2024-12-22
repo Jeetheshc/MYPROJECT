@@ -106,7 +106,7 @@ export const userProfile = async (req, res, next) => {
 export const userLogout = (req, res) => {
     try {
         res.clearCookie('token', { path: '/', httpOnly: true, secure: true }); // Ensure options match the original cookie
-        res.status(200).json({ message: "User logged out successfully" });
+        res.status(200).json({ message: "User logged out successfully..." });
     } catch (error) {
         res.status(500).json({ message: error.message || "Internal server error" });
     }
