@@ -105,10 +105,12 @@ export const userProfile = async (req, res, next) => {
 
 export const userLogout = (req, res) => {
     try {
-        res.clearCookie('token', { path: '/', httpOnly: true, secure: true }); // Ensure options match the original cookie
-        res.status(200).json({ message: "User logged out successfully..." });
+
+        res.clearCookie('token');
+
+        res.json({ message: "user logout success" });
     } catch (error) {
-        res.status(500).json({ message: error.message || "Internal server error" });
+        res.status(error.statusCode || 500).json({ message: error.message || "Internal server error" });
     }
 };
 
@@ -333,39 +335,39 @@ export const getBookingDetails = async (req, res) => {
 
 export const cancelBooking = async (req, res) => {
     try {
-      const { id } = req.params;
-  
-      // Find the booking by ID
-      const booking = await Booking.findById(id);
-      if (!booking) {
-        return res.status(404).json({ message: "Booking not found" });
-      }
-  
-    
-      // Update the booking status to 'Cancelled'
-      booking.status = "Cancelled";
-      await booking.save();
-  
-      res.json({ message: "Booking cancelled successfully", data: booking });
-    } catch (error) {
-      res.status(500).json({ message: error.message || "Internal Server Error" });
-    }
-  };
+        const { id } = req.params;
 
-  export const getReviewForCar = async (req, res) => {
-    try {
-      const { userId, carId } = req.params; // Get userId and carId from params
-  
-      // Fetch review for the given user and car
-      const review = await Review.findOne({ userId, carId });
-  
-      if (review) {
-        return res.status(200).json({ data: review });
-      } else {
-        return res.status(404).json({ message: "No review found for this car by this user." });
-      }
+        // Find the booking by ID
+        const booking = await Booking.findById(id);
+        if (!booking) {
+            return res.status(404).json({ message: "Booking not found" });
+        }
+
+
+        // Update the booking status to 'Cancelled'
+        booking.status = "Cancelled";
+        await booking.save();
+
+        res.json({ message: "Booking cancelled successfully", data: booking });
     } catch (error) {
-      console.error("Error fetching review:", error);
-      res.status(500).json({ message: "Internal Server Error" });
+        res.status(500).json({ message: error.message || "Internal Server Error" });
     }
-  };
+};
+
+export const getReviewForCar = async (req, res) => {
+    try {
+        const { userId, carId } = req.params; // Get userId and carId from params
+
+        // Fetch review for the given user and car
+        const review = await Review.findOne({ userId, carId });
+
+        if (review) {
+            return res.status(200).json({ data: review });
+        } else {
+            return res.status(404).json({ message: "No review found for this car by this user." });
+        }
+    } catch (error) {
+        console.error("Error fetching review:", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+};
