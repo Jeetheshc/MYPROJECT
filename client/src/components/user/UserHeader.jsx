@@ -24,7 +24,7 @@ function UserHeader() {
           className="text-2xl font-bold uppercase tracing-wider bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-green-700 flex items-center gap-2 animate-pulse"
         >
           <FaCar className="text-3xl text-blue-700" />
-          CARENTO
+          CARENTO.
         </Link>
 
         {/* Navigation Links */}
