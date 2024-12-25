@@ -94,7 +94,7 @@ export const AdminProfile = async (req, res, next) => {
 
 export const AdminLogout = (req, res) => {
     try {
-        res.clearCookie('token');
+        res.clearCookie('token', { secure: true, sameSite: 'none' });
         res.json({ message: "Admin logged out successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message || "Internal server error" });
