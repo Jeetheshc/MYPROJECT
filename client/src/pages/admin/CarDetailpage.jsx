@@ -11,7 +11,7 @@ export const CarDetailpage = () => {
     const navigate = useNavigate();
 
     // Fetch car data using the useFetch hook
-    const [data, isLoadingData, errorData] = useFetch(`admin/car/${id}`); // Adjust the endpoint as needed
+    const [data, isLoadingData, errorData] = useFetch(`car/${id}`); // Adjust the endpoint as needed
 
     useEffect(() => {
         if (data) {

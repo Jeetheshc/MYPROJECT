@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { SkeletonLoader } from "../../components/admin/SkeletonLoader";
 
 export const Userlist = () => {
-  const [data, isLoading, error] = useFetch("admin/admin/userlist"); // Adjust the endpoint as needed
+  const [data, isLoading, error] = useFetch("admin/userlist"); // Adjust the endpoint as needed
   const navigate = useNavigate();
 
   if (isLoading) {

@@ -7,7 +7,7 @@ export const AdminProfile = () => {
     const navigate = useNavigate();
 
     // Use the useFetch hook to get the admin profile data
-    const [admin, isLoading, error] = useFetch(`admin/admin/profile/${id}`); // Make sure to adjust the API endpoint accordingly
+    const [admin, isLoading, error] = useFetch(`admin/profile/${id}`); // Make sure to adjust the API endpoint accordingly
 
     // Handle error or no data case
     if (error) {

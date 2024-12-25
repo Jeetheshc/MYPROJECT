@@ -14,7 +14,7 @@ export const EditCar = () => {
     const navigate = useNavigate();
 
     // Fetch the current car data
-    const [data, isLoadingData, errorData] = useFetch(`admin/car/${id}`);
+    const [data, isLoadingData, errorData] = useFetch(`car/${id}`);
 
     useEffect(() => {
         if (data) {

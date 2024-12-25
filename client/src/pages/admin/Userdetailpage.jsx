@@ -11,7 +11,7 @@ export const Userdetailpage = () => {
     const navigate = useNavigate();
 
     // Fetch user data using the useFetch hook
-    const [data, isLoadingData, errorData] = useFetch(`admin/admin/userdetails/${id}`); // Adjust the endpoint as needed
+    const [data, isLoadingData, errorData] = useFetch(`admin/userdetails/${id}`); // Adjust the endpoint as needed
 
     useEffect(() => {
         if (data) {

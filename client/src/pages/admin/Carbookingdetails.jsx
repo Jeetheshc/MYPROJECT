@@ -6,7 +6,7 @@ import { jsPDF } from "jspdf";
 
 export const Carbookingdetails = () => {
     const { id } = useParams(); // Car ID
-    const [data, isLoading, error] = useFetch(`admin/bookings/${id}/booking`); // Adjust API endpoint
+    const [data, isLoading, error] = useFetch(`bookings/${id}/booking`); // Adjust API endpoint
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {

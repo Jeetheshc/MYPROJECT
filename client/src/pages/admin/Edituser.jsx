@@ -12,7 +12,7 @@ export const Edituser = () => {
     const navigate = useNavigate();
 
     // Fetch the current user data
-    const [data, isLoadingData, errorData] = useFetch(`admin/admin/userdetails/${id}`);
+    const [data, isLoadingData, errorData] = useFetch(`admin/userdetails/${id}`);
 
     useEffect(() => {
         if (data) {
