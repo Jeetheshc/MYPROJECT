@@ -53,7 +53,7 @@ export const Edituser = () => {
             });
     
             toast.success("User updated successfully!");
-            navigate(`/admin/view-user/${id}`);
+            navigate(`/admin/admin/view-user/${id}`);
         } catch (error) {
             toast.error(error.response?.data?.message || "Failed to update user. Please try again.");
         }
