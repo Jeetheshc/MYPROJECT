@@ -52,19 +52,19 @@ export const CarDetailpage = () => {
                     <div>
                         <button
                             className="bg-yellow-500 text-white py-2 px-6 rounded-lg transition-colors hover:bg-yellow-600 mr-4"
-                            onClick={() => navigate(`/edit-car/${car._id}`)}
+                            onClick={() => navigate(`/admin/admin/edit-car/${car._id}`)}
                         >
                             Edit Car
                         </button>
                         <button
                             className="bg-green-500 text-white py-2 px-6 rounded-lg transition-colors hover:bg-green-600 mr-4"
-                            onClick={() => navigate(`/car-bookings/${car._id}`)}
+                            onClick={() => navigate(`/admin/admin/car-bookings/${car._id}`)}
                         >
                             Booking History
                         </button>
                         <button
                             className="bg-red-500 text-white py-2 px-6 rounded-lg transition-colors hover:bg-blue-600"
-                            onClick={() => navigate(`/reviews/${car._id}`)} // Navigate to review page
+                            onClick={() => navigate(`/admin/admin/reviews/${car._id}`)} // Navigate to review page
                         >
                             View Reviews.
                         </button>
