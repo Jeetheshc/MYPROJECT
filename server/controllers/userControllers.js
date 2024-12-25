@@ -105,26 +105,11 @@ export const userProfile = async (req, res, next) => {
 
 export const userLogout = (req, res) => {
     try {
-        // Default options for clearing the cookie
-        const defaultOptions = {
-            path: '/',
-            httpOnly: true,
-            secure: false,
-            sameSite: 'Lax', // 'Lax', 'Strict', or 'None'
-        };
+        res.clearCookie('token', { secure: true, sameSite: 'none' });
 
-        // Merge default options with provided options
-        const cookieOptions = { ...defaultOptions, ...options };
-
-        // Clear the token cookie with the configured options
-        res.clearCookie('token', cookieOptions);
-
-        // Respond with a success message
-        res.json({ message: "User logout success" });
+        res.json({ message: "user logout success" });
     } catch (error) {
-        res.status(error.statusCode || 500).json({
-            message: error.message || "Internal server error",
-        });
+        res.status(error.statusCode || 500).json({ message: error.message || "Internal server error" });
     }
 };
 
