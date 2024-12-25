@@ -65,7 +65,7 @@ export const Userlist = () => {
                   {/* Arrow key icon for view details */}
                   <button
                     className="bg-blue-500 text-white p-2 rounded-full transition-colors hover:bg-blue-600"
-                    onClick={() => navigate(`/admin/view-user/${user._id}`)}
+                    onClick={() => navigate(`/admin/admin/view-user/${user._id}`)}
                   >
                     <FaArrowRight className="text-lg" />
                   </button>
