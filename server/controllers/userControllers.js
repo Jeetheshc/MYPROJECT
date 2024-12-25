@@ -105,12 +105,18 @@ export const userProfile = async (req, res, next) => {
 
 export const userLogout = (req, res) => {
     try {
+        // Define default cookie options and allow customization
+        const cookieOptions = req.cookieOptions || {};
 
-        res.clearCookie('token');
+        // Clear the token cookie with optional parameters
+        res.clearCookie('token', cookieOptions);
 
-        res.json({ message: "user logout success" });
+        // Respond with a success message
+        res.json({ message: "User logout success" });
     } catch (error) {
-        res.status(error.statusCode || 500).json({ message: error.message || "Internal server error" });
+        res.status(error.statusCode || 500).json({
+            message: error.message || "Internal server error",
+        });
     }
 };
 
