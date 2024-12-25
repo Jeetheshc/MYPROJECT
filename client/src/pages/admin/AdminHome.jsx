@@ -12,21 +12,21 @@ export const AdminHome = () => {
         <div className="flex gap-8">
           <button
             className="flex flex-col items-center px-8 py-6 bg-blue-500 text-white rounded-xl shadow-lg hover:bg-blue-600 transition-all duration-300 w-40 h-40"
-            onClick={() => navigate('/admin/carslist')}
+            onClick={() => navigate('/admin/admin/carslist')}
           >
             <FaCar className="text-5xl mb-4" />
             <span className="text-lg font-semibold">Car List</span>
           </button>
           <button
             className="flex flex-col items-center px-8 py-6 bg-green-500 text-white rounded-xl shadow-lg hover:bg-green-600 transition-all duration-300 w-40 h-40"
-            onClick={() => navigate('/admin/userlist')}
+            onClick={() => navigate('/admin/admin/userlist')}
           >
             <FaUsers className="text-5xl mb-4" />
             <span className="text-lg font-semibold">User List</span>
           </button>
           <button
             className="flex flex-col items-center px-8 py-6 bg-blue-500 text-white rounded-xl shadow-lg hover:bg-blue-600 transition-all duration-300 w-40 h-40"
-            onClick={() => navigate('/admin/bookings')}
+            onClick={() => navigate('/admin/admin/bookings')}
           >
             <FaClipboardList className="text-5xl mb-4" /> {/* You can choose a suitable icon for bookings */}
             <span className="text-lg font-semibold">Bookings</span>
