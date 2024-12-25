@@ -36,7 +36,6 @@ import { CarReviewPage } from "../pages/admin/CarReviewPage";
 import { Adminuserbook } from "../pages/admin/Adminuserbook";
 import { Reviewentryform } from "../pages/user/Reviewentryform";
 import { Carreviews } from "../pages/user/Carreviews";
-import { Dashboard } from "../pages/admin/Dashboard";
 
 
 
