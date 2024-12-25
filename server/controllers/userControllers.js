@@ -105,10 +105,23 @@ export const userProfile = async (req, res, next) => {
 
 export const userLogout = (req, res) => {
     try {
+        // Destructure optional parameters with defaults
+        const {
+            message = "User logout successful",
+            statusCode = 200,
+            additionalCookies = []
+        } = options;
 
+        // Clear the primary token cookie
         res.clearCookie('token');
 
-        res.json({ message: "user logout success" });
+        // Clear additional cookies if provided
+        if (Array.isArray(additionalCookies)) {
+            additionalCookies.forEach(cookieName => res.clearCookie(cookieName));
+        }
+
+        // Respond with a customizable message and status code
+        res.status(statusCode).json({ message });
     } catch (error) {
         res.status(error.statusCode || 500).json({ message: error.message || "Internal server error" });
     }
