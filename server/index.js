@@ -17,10 +17,12 @@ connectDB();
 app.use(express.json());
 app.use(
     cors({
-        
-        origin: ["https://carentoapp.vercel.app"],
+        origin: [
+            "https://carrentapp.vercel.app", // Production
+           // "http://localhost:3001",    
+        ],
         credentials: true,
-        methods: ["GET","POST","PATCH","PUT","DELETE"]
+        methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
     })
 );
 app.use(cookieParser());
