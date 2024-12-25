@@ -12,7 +12,7 @@ export const CarReviewPage = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await axiosInstance.get(`/review/${id}`);
+                const response = await axiosInstance.get(`admin/review/${id}`);
                 setReviews(response.data.data);
             } catch (err) {
                 setError(err.message);

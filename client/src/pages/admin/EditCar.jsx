@@ -14,7 +14,7 @@ export const EditCar = () => {
     const navigate = useNavigate();
 
     // Fetch the current car data
-    const [data, isLoadingData, errorData] = useFetch(`/car/${id}`);
+    const [data, isLoadingData, errorData] = useFetch(`admin/car/${id}`);
 
     useEffect(() => {
         if (data) {
@@ -91,7 +91,7 @@ export const EditCar = () => {
             // Make the API call to update the car data using axiosInstance
             const response = await axiosInstance({
                 method: "PUT",
-                url: `/car/edit/${id}`, // Use the car id to edit the specific car
+                url: `admin/car/edit/${id}`, // Use the car id to edit the specific car
                 data: updatedFormData,
                 headers: {
                     "Content-Type": "multipart/form-data",
@@ -99,7 +99,7 @@ export const EditCar = () => {
             });
     console.log("img=",updatedFormData);
             toast.success("Car updated successfully!");
-            navigate(`/admin/view-car/${car._id}`);
+            navigate(`admin/admin/view-car/${car._id}`);
         } catch (error) {
             console.error(error);
             toast.error(error.response?.data?.message || "Failed to update car. Please try again.");

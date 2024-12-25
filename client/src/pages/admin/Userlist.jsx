@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { SkeletonLoader } from "../../components/admin/SkeletonLoader";
 
 export const Userlist = () => {
-  const [data, isLoading, error] = useFetch("/admin/userlist"); // Adjust the endpoint as needed
+  const [data, isLoading, error] = useFetch("admin/admin/userlist"); // Adjust the endpoint as needed
   const navigate = useNavigate();
 
   if (isLoading) {
@@ -65,7 +65,7 @@ export const Userlist = () => {
                   {/* Arrow key icon for view details */}
                   <button
                     className="bg-blue-500 text-white p-2 rounded-full transition-colors hover:bg-blue-600"
-                    onClick={() => navigate(`/admin/view-user/${user._id}`)}
+                    onClick={() => navigate(`admin/admin/view-user/${user._id}`)}
                   >
                     <FaArrowRight className="text-lg" />
                   </button>

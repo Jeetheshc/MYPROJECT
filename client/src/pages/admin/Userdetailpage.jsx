@@ -11,7 +11,7 @@ export const Userdetailpage = () => {
     const navigate = useNavigate();
 
     // Fetch user data using the useFetch hook
-    const [data, isLoadingData, errorData] = useFetch(`/admin/userdetails/${id}`); // Adjust the endpoint as needed
+    const [data, isLoadingData, errorData] = useFetch(`admin/admin/userdetails/${id}`); // Adjust the endpoint as needed
 
     useEffect(() => {
         if (data) {
@@ -51,7 +51,7 @@ export const Userdetailpage = () => {
                     </h2>
                     <button
                         className="bg-yellow-500 text-white py-2 px-6 rounded-lg transition-colors hover:bg-yellow-600"
-                        onClick={() => navigate(`/admin/edit-user/${user._id}`)}
+                        onClick={() => navigate(`admin/admin/edit-user/${user._id}`)}
                     >
                         Edit User
                     </button>
@@ -107,7 +107,7 @@ export const Userdetailpage = () => {
                 <div className="mt-6 text-center">
                     <button
                         className="bg-green-500 text-white py-2 px-6 rounded-lg transition-colors hover:bg-green-600"
-                        onClick={() => navigate(`/admin/userreviews/${id}`)}
+                        onClick={() => navigate(`admin/admin/userreviews/${id}`)}
                     >
                         View Bookings
                     </button>
