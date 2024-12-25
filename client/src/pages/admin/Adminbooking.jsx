@@ -26,7 +26,7 @@ export const Adminbooking = () => {
     try {
       const response = await axiosInstance({
         method: "PATCH",
-        url: `admin/admin/bookingcancel/${bookingId}`, // Use bookingId here
+        url: `/admin/bookingcancel/${bookingId}`, // Use bookingId here
       });
 
       if (response.data.message) {

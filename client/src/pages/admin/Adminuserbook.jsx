@@ -11,7 +11,7 @@ export const Adminuserbook = () => {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const response = await axiosInstance.get(`admin/bookings/userbook/${id}`);
+                const response = await axiosInstance.get(`/bookings/userbook/${id}`);
                 setBookings(response.data.data); // Assuming your API returns bookings in the "data" field
             } catch (err) {
                 setError("Error fetching bookings.");

@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa"; // Importing the arrow icon
 import { SkeletonLoader } from "../../components/admin/SkeletonLoader";
 
 export const Carlist = () => {
-  const [data, isLoading, error] = useFetch("car/cars"); // Adjust the endpoint as needed
+  const [data, isLoading, error] = useFetch("/car/cars"); // Adjust the endpoint as needed
   const navigate = useNavigate();
 
   if (isLoading) {
@@ -33,7 +33,7 @@ export const Carlist = () => {
       <div className="flex justify-center mb-6">
         <button
           className="bg-blue-600 text-white py-2 px-6 rounded-lg transition-colors hover:bg-blue-700"
-          onClick={() => navigate("admin/admin/addcars")}
+          onClick={() => navigate("/admin/addcars")}
         >
           Add New Car
         </button>
@@ -83,7 +83,7 @@ export const Carlist = () => {
                   {/* Arrow key icon for view details */}
                   <button
                     className="bg-blue-500 text-white p-2 rounded-full transition-colors hover:bg-blue-600"
-                    onClick={() => navigate(`admin/admin/view-car/${car._id}`)}
+                    onClick={() => navigate(`/admin/view-car/${car._id}`)}
                   >
                     <FaArrowRight className="text-lg" />
                   </button>

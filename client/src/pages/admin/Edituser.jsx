@@ -46,14 +46,14 @@ export const Edituser = () => {
             };
     
             // Make the API call to update the user data
-            const response = await axiosInstance.put(`admin/admin/useredit/${id}`, updatedData, {
+            const response = await axiosInstance.put(`admin/useredit/${id}`, updatedData, {
                 headers: {
                     "Content-Type": "application/json",  // Ensure the correct content type
                 },
             });
     
             toast.success("User updated successfully!");
-            navigate(`admin/admin/view-user/${id}`);
+            navigate(`/admin/view-user/${id}`);
         } catch (error) {
             toast.error(error.response?.data?.message || "Failed to update user. Please try again.");
         }
