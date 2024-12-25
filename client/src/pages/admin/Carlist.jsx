@@ -33,7 +33,7 @@ export const Carlist = () => {
       <div className="flex justify-center mb-6">
         <button
           className="bg-blue-600 text-white py-2 px-6 rounded-lg transition-colors hover:bg-blue-700"
-          onClick={() => navigate("/admin/addcars")}
+          onClick={() => navigate("/addcars")}
         >
           Add New Car
         </button>
