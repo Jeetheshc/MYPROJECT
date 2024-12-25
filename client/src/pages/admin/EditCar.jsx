@@ -99,7 +99,7 @@ export const EditCar = () => {
             });
     console.log("img=",updatedFormData);
             toast.success("Car updated successfully!");
-            navigate(`/admin/view-car/${car._id}`);
+            navigate(`/admion/admin/view-car/${car._id}`);
         } catch (error) {
             console.error(error);
             toast.error(error.response?.data?.message || "Failed to update car. Please try again.");
