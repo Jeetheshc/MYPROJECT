@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa"; // Importing the arrow icon
 import { SkeletonLoader } from "../../components/admin/SkeletonLoader";
 
 export const Carlist = () => {
-  const [data, isLoading, error] = useFetch("admin/car/cars"); // Adjust the endpoint as needed
+  const [data, isLoading, error] = useFetch("car/cars"); // Adjust the endpoint as needed
   const navigate = useNavigate();
 
   if (isLoading) {
