@@ -19,7 +19,7 @@ app.use(
     cors({
         origin: [
             "https://carrentapp.vercel.app", // Production
-           // "http://localhost:3001",    
+           // "http://localhost:3001",         Development
         ],
         credentials: true,
         methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
