@@ -1,7 +1,7 @@
 
 import Admin from "../models/adminmodel.js";
 import bcrypt from "bcrypt";
-import {  generateadminToken } from "../utils/token.js";
+import {  generateToken, generateadminToken } from "../utils/token.js";
 import { cloudinaryInstance } from "../config/cloudinary.js";
 import User from "../models/userModel.js";
 import Booking from "../models/bookingmodel.js";
@@ -57,9 +57,12 @@ export const AdminLogin = async (req, res) => {
             return res.status(400).json({ message: "Incorrect password" });
         }
 
+      
         const token = generateToken(AdminExist, 'admin');
         res.cookie("token", token, { sameSite: "None", secure: true });
         // res.cookie('token', token);
+
+
         res.status(200).json({ message: "Admin logged in successfully" });
     } catch (error) {
         console.error("Error during login:", error.message); // Debugging
