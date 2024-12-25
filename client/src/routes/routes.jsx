@@ -76,10 +76,10 @@ export const router = createBrowserRouter([
                 element: <Contact />,
             },
             {
-                path:"cars/carreviews/:id",
-                element:<Carreviews/>,
+                path: "cars/carreviews/:id",
+                element: <Carreviews />,
             },
-            
+
 
             {
                 element: <ProtectedRoutes />,
@@ -129,17 +129,17 @@ export const router = createBrowserRouter([
                         },
                         {
                             path: "/user/bookdetails/:bookingId",
-                            element: <Bookingdetails/>,
+                            element: <Bookingdetails />,
                         },
-                       
+
                         {
                             path: "reviewentry/:bookingId/:carId",
                             element: <Reviewentryform />,
                         },
                         {
-                            path:"carreviews/:id",
-                            element:<Carreviews/>,
-                        }, 
+                            path: "carreviews/:id",
+                            element: <Carreviews />,
+                        },
                     ]
 
             },
@@ -161,62 +161,64 @@ export const router = createBrowserRouter([
                 path: "login",
                 element: <Login role="admin" />,
             },
-            {
-                path: "carslist",
-                element: <Carlist />,
-            },
-            {
-                path: "addcars",
-                element: <Addnewcar />,
-            },
-            {
-                path: "view-car/:id",
-                element: <CarDetailpage />,
-            },
-            {
-                path: "edit-car/:id",
-                element: <EditCar />,
-            },
-            {
-                path: "userlist",
-                element: <Userlist />,
-            },
-            {
-                path: "view-user/:id",
-                element: <Userdetailpage />,
-            },
-            {
-                path: "edit-user/:id",
-                element: <Edituser />,
-            },
-            {
-                path:"profile/:id",
-                element:<AdminProfile/>,
-            },
-            {
-                path:"bookings",
-                element:<Adminbooking/>,
-            },
-            {
-                path:"car-bookings/:id",
-                element:<Carbookingdetails/>,
-            },
-            {
-                path:"reviews/:id",
-                element:<CarReviewPage/>,
-            },
-            {
-                path:"userreviews/:id",
-                element:<Adminuserbook/>,
-            },
-            
-           
-          
+
             {
                 element: <AdminProtectedRoutes />,
                 path: "admin",
                 children:
                     [
+                        {
+                            path: "carslist",
+                            element: <Carlist />,
+                        },
+                        {
+                            path: "addcars",
+                            element: <Addnewcar />,
+                        },
+                        {
+                            path: "view-car/:id",
+                            element: <CarDetailpage />,
+                        },
+                        {
+                            path: "edit-car/:id",
+                            element: <EditCar />,
+                        },
+                        {
+                            path: "userlist",
+                            element: <Userlist />,
+                        },
+                        {
+                            path: "view-user/:id",
+                            element: <Userdetailpage />,
+                        },
+                        {
+                            path: "edit-user/:id",
+                            element: <Edituser />,
+                        },
+                        {
+                            path: "profile/:id",
+                            element: <AdminProfile />,
+                        },
+                        {
+                            path: "bookings",
+                            element: <Adminbooking />,
+                        },
+                        {
+                            path: "car-bookings/:id",
+                            element: <Carbookingdetails />,
+                        },
+                        {
+                            path: "reviews/:id",
+                            element: <CarReviewPage />,
+                        },
+                        {
+                            path: "userreviews/:id",
+                            element: <Adminuserbook />,
+                        },
+
+
+
+
                         {
                             path: "adminhome",
                             element: <AdminHome />,
