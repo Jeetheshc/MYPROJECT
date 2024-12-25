@@ -105,10 +105,18 @@ export const userProfile = async (req, res, next) => {
 
 export const userLogout = (req, res) => {
     try {
-        // Define default cookie options and allow customization
-        const cookieOptions = req.cookieOptions || {};
+        // Default options for clearing the cookie
+        const defaultOptions = {
+            path: '/',
+            httpOnly: true,
+            secure: false,
+            sameSite: 'Lax', // 'Lax', 'Strict', or 'None'
+        };
 
-        // Clear the token cookie with optional parameters
+        // Merge default options with provided options
+        const cookieOptions = { ...defaultOptions, ...options };
+
+        // Clear the token cookie with the configured options
         res.clearCookie('token', cookieOptions);
 
         // Respond with a success message
