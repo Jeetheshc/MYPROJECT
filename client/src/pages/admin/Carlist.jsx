@@ -83,7 +83,7 @@ export const Carlist = () => {
                   {/* Arrow key icon for view details */}
                   <button
                     className="bg-blue-500 text-white p-2 rounded-full transition-colors hover:bg-blue-600"
-                    onClick={() => navigate(`/admin/view-car/${car._id}`)}
+                    onClick={() => navigate(`/admin/admin/view-car/${car._id}`)}
                   >
                     <FaArrowRight className="text-lg" />
                   </button>
