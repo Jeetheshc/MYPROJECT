@@ -59,37 +59,17 @@ router.post('/create-checkout-session', userAuth, async (req, res, next) => {
         res.status(500).json({ message: "Internal server error - payment failed" });
     }
 });
-// router.get("/session-status", async (req, res) => {
-//     try {
-//         const sessionId = req.query.session_id;
-//         const session = await stripe.checkout.sessions.retrieve(sessionId);
+router.get("/session-status", async (req, res) => {
+    try {
+        const sessionId = req.query.session_id;
+        const session = await stripe.checkout.sessions.retrieve(sessionId);
 
-//         res.send({
-//             status: session?.status,
-//             customer_email: session?.customer_details?.email,
-//         });
-//     } catch (error) {
-//         res.status(error?.statusCode || 500).json(error.message || "internal server error");
-//     }
-// });
-// export { router as paymentRouter };
-
-router.get('/session-status', async (req, res) => {
-  try {
-    const sessionId = req.query.session_id;
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-
-    if (session?.payment_status === 'paid') {
-      res.json({
-        status: 'succeeded',
-        customer_email: session?.customer_details?.email,
-      });
-    } else {
-      res.status(400).json({ message: 'Payment not completed.' });
+        res.send({
+            status: session?.status,
+            customer_email: session?.customer_details?.email,
+        });
+    } catch (error) {
+        res.status(error?.statusCode || 500).json(error.message || "internal server error");
     }
-  } catch (error) {
-    console.error('Error verifying session:', error.message);
-    res.status(500).json({ message: 'Failed to verify payment session.' });
-  }
 });
-
+export { router as paymentRouter };
