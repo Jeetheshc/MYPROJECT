@@ -49,7 +49,7 @@ router.post('/create-checkout-session', userAuth, async (req, res, next) => {
             payment_method_types: ["card"],
             line_items: [lineItem],
             mode: "payment",
-            success_url: `${client_domain}/user/payment/success`,
+            success_url: `${client_domain}/user/payment/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${client_domain}/user/payment/cancel`,
         });
 
@@ -63,13 +63,18 @@ router.get("/session-status", async (req, res) => {
     try {
         const sessionId = req.query.session_id;
         const session = await stripe.checkout.sessions.retrieve(sessionId);
-
-        res.send({
-            status: session?.status,
+    
+        if (session?.payment_status === 'paid') {
+          res.json({
+            status: 'succeeded',
             customer_email: session?.customer_details?.email,
-        });
-    } catch (error) {
-        res.status(error?.statusCode || 500).json(error.message || "internal server error");
-    }
-});
+          });
+        } else {
+          res.status(400).json({ message: 'Payment not completed.' });
+        }
+      } catch (error) {
+        console.error('Error verifying session:', error.message);
+        res.status(500).json({ message: 'Failed to verify payment session.' });
+      }
+    });
 export { router as paymentRouter };

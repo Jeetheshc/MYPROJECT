@@ -66,6 +66,39 @@ export const CarDetails = () => {
 
       console.log("Car data being sent to backend:", Cars);
 
+      const fromDateObj = parseDate(formData.fromDate);
+      const toDateObj = parseDate(formData.toDate);
+    
+      if (!fromDateObj || !toDateObj) {
+        alert("Invalid date selected. Please select valid dates.");
+        return;
+      }
+    
+      if (fromDateObj > toDateObj) {
+        alert("From date cannot be later than To date.");
+        return;
+      }
+    
+      const formattedFromDate = fromDateObj.toISOString();
+      const formattedToDate = toDateObj.toISOString();
+    
+      // Prepare the booking data
+      const bookingData = {
+        carId: Cars._id,
+        fromDate: formattedFromDate,
+        toDate: formattedToDate,
+        location: formData.location,
+        totalAmountPaid: totalPrice,
+      };
+    
+      // Store the booking details in localStorage before payment
+      localStorage.setItem("carId", bookingData.carId);
+      localStorage.setItem("fromDate", bookingData.fromDate);
+      localStorage.setItem("toDate", bookingData.toDate);
+      localStorage.setItem("location", bookingData.location);
+      localStorage.setItem("totalPrice", bookingData.totalAmountPaid);
+    
+      console.log("Booking Data to be Sent:", bookingData);
       // Send the total price instead of pricePerDay
       const session = await axiosInstance.post("/payment/create-checkout-session", {
         car: {
