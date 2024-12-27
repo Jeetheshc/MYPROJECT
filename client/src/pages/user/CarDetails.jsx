@@ -226,12 +226,12 @@ export const CarDetails = () => {
               >
                 Confirm Booking
               </button>
-              <button
+              {/* <button
                 className="px-6 py-2 bg-blue-500  text-white rounded-md hover:bg-blue-600 transition-all"
                 onClick={handleConfirm}
               >
-                 Booking
-              </button>
+                 Manual Booking
+              </button> */}
             </div>
           </div>
           

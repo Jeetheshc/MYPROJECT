@@ -43,10 +43,10 @@ export const Paymentseccess = () => {
         !bookingDetails.totalAmountPaid
       ) {
         console.log(localStorage.getItem('carId'));
-console.log(localStorage.getItem('fromDate'));
-console.log(localStorage.getItem('toDate'));
-console.log(localStorage.getItem('location'));
-console.log(localStorage.getItem('totalPrice'));
+        console.log(localStorage.getItem('fromDate'));
+        console.log(localStorage.getItem('toDate'));
+        console.log(localStorage.getItem('location'));
+        console.log(localStorage.getItem('totalPrice'));
 
         toast.error("Incomplete booking details. Please try again.");
         return;
