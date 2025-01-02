@@ -14,7 +14,10 @@ export const Adminbooking = () => {
   const navigate = useNavigate(); // For page refresh/navigation
 
   if (isLoading) {
-    return <SkeletonLoader />;
+    return <div className="flex flex-col justify-center items-center h-screen">
+    <FaSpinner className="animate-spin text-4xl text-blue-500 mb-4" /> {/* Spinning icon */}
+    <span className="text-xl font-semibold text-gray-600">Fetching Booking Details...</span>
+  </div>;
   }
 
   if (error) {
