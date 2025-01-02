@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaCar, FaClipboardList, FaUsers } from 'react-icons/fa';
+import { FaCar, FaClipboardList, FaCreditCard, FaUsers } from 'react-icons/fa';
 import { Bar } from 'react-chartjs-2';
 import {  Chart as ChartJS,  CategoryScale,  LinearScale,  BarElement,  Title,  Tooltip,  Legend,} from 'chart.js';
 import { useFetch } from '../../hooks/useFetch';
@@ -170,6 +170,13 @@ export const AdminHome = () => {
               onClick={() => navigate('/admin/admin/bookings')}
             >
               <FaClipboardList className="text-5xl mb-4" /> {/* You can choose a suitable icon for bookings */}
+              <span className="text-lg font-semibold">Payments</span>
+            </button>
+            <button
+              className="flex flex-col items-center px-8 py-6 bg-green-500 text-white rounded-xl shadow-lg hover:bg-blue-600 transition-all duration-300 w-40 h-40"
+              onClick={() => navigate('https://dashboard.stripe.com')}
+            >
+              <FaCreditCard className="text-5xl mb-4" /> {/* You can choose a suitable icon for bookings */}
               <span className="text-lg font-semibold">Bookings</span>
             </button>
           </div>
