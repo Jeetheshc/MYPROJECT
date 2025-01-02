@@ -221,7 +221,7 @@ export const AdminHome = () => {
               value={selectedYear}
               onChange={(e) => setSelectedYear(parseInt(e.target.value))}
             >
-              {Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i).map((year) => (
+              {Array.from({ length: 5 }, (_, i) => new Date().getFullYear() - i).map((year) => (
                 <option key={year} value={year}>
                   {year}
                 </option>
