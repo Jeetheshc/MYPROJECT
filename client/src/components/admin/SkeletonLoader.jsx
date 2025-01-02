@@ -15,14 +15,14 @@ export const SkeletonLoader = () => {
           <thead>
             <tr className="bg-gray-100">
               <th className="px-4 py-2 text-left border-b">#</th>
-              <th className="px-4 py-2 text-left border-b">Car Brand</th>
-              <th className="px-4 py-2 text-left border-b">Model</th>
-              <th className="px-4 py-2 text-left border-b">Price/Day</th>
-              <th className="px-4 py-2 text-left border-b">Year</th>
-              <th className="px-4 py-2 text-left border-b">Added Date</th>
-              <th className="px-4 py-2 text-left border-b">Location</th>
-              <th className="px-4 py-2 text-left border-b">Car Image</th>
-              <th className="px-4 py-2 text-left border-b">Actions</th>
+              <th className="px-4 py-2 text-left border-b"></th>
+              <th className="px-4 py-2 text-left border-b"></th>
+              <th className="px-4 py-2 text-left border-b"></th>
+              <th className="px-4 py-2 text-left border-b"></th>
+              <th className="px-4 py-2 text-left border-b"></th>
+              <th className="px-4 py-2 text-left border-b"></th>
+              <th className="px-4 py-2 text-left border-b"></th>
+              <th className="px-4 py-2 text-left border-b"></th>
             </tr>
           </thead>
           <tbody>

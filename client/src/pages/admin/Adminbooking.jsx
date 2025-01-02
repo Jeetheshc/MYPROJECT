@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
-import { SkeletonLoader } from "../../components/admin/SkeletonLoader";
+
 import { axiosInstance } from "../../config/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import jsPDF from "jspdf";
 import { generateBill, generateCarWiseBookingReport } from "../shared/Pdf";
+import { Skeletonbook } from "../../components/admin/Skeletonbook";
 
 export const Adminbooking = () => {
   const [data, isLoading, error] = useFetch("/bookings"); // Fetch bookings data
@@ -14,7 +15,7 @@ export const Adminbooking = () => {
   const navigate = useNavigate(); // For page refresh/navigation
 
   if (isLoading) {
-    return <SkeletonLoader />;
+    return <Skeletonbook />;
   }
 
   if (error) {
